@@ -1,0 +1,837 @@
+{
+    "_commnet": [
+        "elememt radius from http://crystalmaker.com/support/tutorials/atomic-radii/index.html"
+    ],
+
+    "elem" : { 
+        "H" : {
+            "atom_num": "01", 
+            "atom_energy" : -3.327,
+            "atomic_rad" : 0.53, 
+            "crystal_rad" : 0.1
+        },
+
+        "He": {
+            "atom_num": "02", 
+            "atom_energy" : -0.004,
+            "atomic_rad" : 0.31 
+        },
+
+        "Li": { 
+            "atom_num": "03", 
+            "atom_energy" : -1.907,  
+            "atomic_rad" : 1.67, 
+            "crystal_rad" : 0.9,
+            "NaCl_O": 2.001, 
+            "CsCl_O": 2.449, 
+            "ZnS_O": 2.175
+        },
+        
+        "Be": { 
+            "atom_num": "04", 
+            "atom_energy" : -3.755,  
+            "atomic_rad" : 1.12, 
+            "crystal_rad" : 0.41,
+            "NaCl_O": 1.808, 
+            "CsCl_O": 2.342, 
+            "ZnS_O": 1.898
+        },
+
+        "B" : { 
+            "atom_num": "05", 
+            "atom_energy" : -6.678,  
+            "atomic_rad" : 0.87, 
+            "crystal_rad" : 0.25,
+            "NaCl_O": 1.925, 
+            "CsCl_O": 2.377, 
+            "ZnS_O": 1.950 
+        }, 
+             
+        "C" : {
+            "atom_num": "06", 
+            "atom_energy" : -9.217,  
+            "atomic_rad" : 0.67, 
+            "crystal_rad" : 0.29
+        },
+
+        "N" : {
+            "atom_num": "07", 
+            "atom_energy" : -8.235,
+            "atomic_rad" : 0.56, 
+            "crystal_rad" : 0.3
+        },
+ 
+        "O" : {
+            "atom_num": "08", 
+            "atom_energy" : -4.844,
+            "atomic_rad" : 0.48, 
+            "crystal_rad" : 1.21
+        },
+
+        "F" : {
+            "atom_num": "09", 
+            "atom_energy" : -1.666,
+            "atomic_rad" : 0.42, 
+            "crystal_rad" : 1.19
+        },
+
+        "Ne": {
+            "atom_num": "10", 
+            "atom_energy" : -0.029,
+            "atomic_rad" : 0.38
+        },
+ 
+        "Na": {
+            "atom_num": "11", 
+            "atom_energy" : -1.303,
+            "atomic_rad" : 1.90, 
+            "crystal_rad" : 1.16,
+            "NaCl_O": 2.347, 
+            "CsCl_O": 2.795, 
+            "ZnS_O": 2.594
+        }, 
+             
+        "Mg": {
+            "atom_num": "12", 
+            "atom_energy" : -1.542,
+            "atomic_rad" : 1.45, 
+            "crystal_rad" : 0.86,
+            "NaCl_O": 2.100, 
+            "CsCl_O": 2.624, 
+            "ZnS_O": 2.279 
+        }, 
+             
+        "Al": {
+            "atom_num": "13", 
+            "atom_energy" : -3.746,
+            "atomic_rad" : 1.18, 
+            "crystal_rad" : 0.53,
+            "NaCl_O": 2.217, 
+            "CsCl_O": 2.743, 
+            "ZnS_O": 2.247 
+        }, 
+             
+        "Si": {
+            "atom_num": "14", 
+            "atom_energy" : -5.425,
+            "atomic_rad" : 1.11, 
+            "crystal_rad" : 0.4
+        },
+ 
+        "P" : {
+            "atom_num": "15", 
+            "atom_energy" : -5.405,
+            "atomic_rad" : 0.98, 
+            "crystal_rad" : 0.31
+        },
+
+        "S" : {
+            "atom_num": "16", 
+            "atom_energy" : -4.114,
+            "atomic_rad" : 0.88, 
+            "crystal_rad" : 0.43
+        },
+
+        "Cl": {
+            "atom_num": "17", 
+            "atom_energy" : -1.820,
+            "atomic_rad" : 0.79, 
+            "crystal_rad" : 1.67
+        },
+
+        "Ar": {
+            "atom_num": "18", 
+            "atom_energy" : -0.006,
+            "atomic_rad" : 0.71
+        },
+
+        "K" : {
+            "atom_num": "19", 
+            "atom_energy" : -1.097,  
+            "atomic_rad" : 2.43, 
+            "crystal_rad" : 1.52,
+            "NaCl_O": 2.697, 
+            "CsCl_O": 3.226, 
+            "ZnS_O": 2.965 
+        }, 
+             
+        "Ca": {
+            "atom_num": "20", 
+            "atom_energy" : -1.978,  
+            "atomic_rad" : 1.94, 
+            "crystal_rad" : 1.14,
+            "NaCl_O": 2.395, 
+            "CsCl_O": 2.908, 
+            "ZnS_O": 2.595 
+        }, 
+             
+        "Sc": {
+            "atom_num": "21", 
+            "atom_energy" : -6.328,  
+            "atomic_rad" : 1.84, 
+            "crystal_rad" : 0.89,
+            "NaCl_O": 2.223, 
+            "CsCl_O": 2.740, 
+            "ZnS_O": 2.422 
+        }, 
+             
+        "Ti": {
+            "atom_num": "22", 
+            "atom_energy" : -7.776,  
+            "atomic_rad" : 1.76, 
+            "crystal_rad" : 0.75,
+            "NaCl_O": 2.130, 
+            "CsCl_O": 2.623, 
+            "ZnS_O": 2.310 
+        }, 
+             
+        "V" : {
+            "atom_num": "23", 
+            "atom_energy" : -8.941,  
+            "atomic_rad" : 1.71, 
+            "crystal_rad" : 0.68,
+            "NaCl_O": 2.217, 
+            "CsCl_O": 2.738, 
+            "ZnS_O": 2.346 
+        }, 
+             
+        "Cr": {
+            "atom_num": "24", 
+            "atom_energy" : -9.508,  
+            "atomic_rad" : 1.66, 
+            "crystal_rad" : 0.76,
+            "NaCl_O": 2.208, 
+            "CsCl_O": 2.738, 
+            "ZnS_O": 2.367 
+        }, 
+             
+        "Mn": {
+            "atom_num": "25", 
+            "atom_energy" : -9.027,  
+            "atomic_rad" : 1.61, 
+            "crystal_rad" : 0.81,
+            "NaCl_O": 2.233, 
+            "CsCl_O": 2.758, 
+            "ZnS_O": 2.401 
+        }, 
+             
+        "Fe": {
+            "atom_num": "26", 
+            "atom_energy" : -8.308,  
+            "atomic_rad" : 1.56, 
+            "crystal_rad" : 0.69,
+            "NaCl_O": 2.138, 
+            "CsCl_O": 2.632, 
+            "ZnS_O": 2.295 
+        }, 
+             
+        "Co": {
+            "atom_num": "27", 
+            "atom_energy" : -7.090,  
+            "atomic_rad" : 1.52, 
+            "crystal_rad" : 0.54,
+            "NaCl_O": 2.109, 
+            "CsCl_O": 2.561, 
+            "ZnS_O": 2.290 
+        }, 
+             
+        "Ni": {
+            "atom_num": "28", 
+            "atom_energy" : -5.567,  
+            "atomic_rad" : 1.49, 
+            "crystal_rad" : 0.7,
+            "NaCl_O": 2.086, 
+            "CsCl_O": 2.561, 
+            "ZnS_O": 2.202 
+        }, 
+             
+        "Cu": {
+            "atom_num": "29", 
+            "atom_energy" : -3.716,  
+            "atomic_rad" : 1.45, 
+            "crystal_rad" : 0.71,
+            "NaCl_O": 2.087, 
+            "CsCl_O": 2.598, 
+            "ZnS_O": 2.228 
+        }, 
+             
+        "Zn": {
+            "atom_num": "30", 
+            "atom_energy" : -1.266,  
+            "atomic_rad" : 1.42, 
+            "crystal_rad" : 0.74,
+            "NaCl_O": 2.150, 
+            "CsCl_O": 2.666, 
+            "ZnS_O": 2.294 
+        }, 
+             
+        "Ga": {
+            "atom_num": "31", 
+            "atom_energy" : -3.032,  
+            "atomic_rad" : 1.36, 
+            "crystal_rad" : 0.76,
+            "NaCl_O": 2.277, 
+            "CsCl_O": 2.805, 
+            "ZnS_O": 2.400 
+        }, 
+             
+        "Ge": {
+            "atom_num": "32", 
+            "atom_energy" : -4.624,
+            "atomic_rad" : 1.25, 
+            "crystal_rad" : 0.53
+        },
+
+        "As": {
+            "atom_num": "33", 
+            "atom_energy" : -4.652,
+            "atomic_rad" : 1.14, 
+            "crystal_rad" : 0.72
+        },
+
+        "Se": {
+            "atom_num": "34", 
+            "atom_energy" : -3.481,
+            "atomic_rad" : 1.03, 
+            "crystal_rad" : 0.56
+        },
+
+        "Br": {
+            "atom_num": "35", 
+            "atom_energy" : -1.606,
+            "atomic_rad" : 0.94, 
+            "crystal_rad" : 1.82
+        },
+
+        "Kr": {
+            "atom_num": "36", 
+            "atom_energy" : -0.004,
+            "atomic_rad" : 0.88
+        },
+
+        "Rb": {
+            "atom_num": "37", 
+            "atom_energy" : -0.963,
+            "atomic_rad" : 2.65, 
+            "crystal_rad" : 1.66,
+            "NaCl_O": 2.805, 
+            "CsCl_O": 3.423, 
+            "ZnS_O": 3.091 
+        }, 
+             
+        "Sr": {
+            "atom_num": "38", 
+            "atom_energy" : -1.683,
+            "atomic_rad" : 2.19, 
+            "crystal_rad" : 1.32,
+            "NaCl_O": 2.580, 
+            "CsCl_O": 3.110, 
+            "ZnS_O": 2.786 
+        }, 
+             
+        "Y" : {
+            "atom_num": "39", 
+            "atom_energy" : -6.464,
+            "atomic_rad" : 2.12, 
+            "crystal_rad" : 1.04,
+            "NaCl_O": 2.401, 
+            "CsCl_O": 2.954, 
+            "ZnS_O": 2.634 
+        }, 
+             
+        "Zr": {
+            "atom_num": "40", 
+            "atom_energy" : -8.547,
+            "atomic_rad" : 2.06, 
+            "crystal_rad" : 0.86,
+            "NaCl_O": 2.299, 
+            "CsCl_O": 2.861, 
+            "ZnS_O": 2.498 
+        }, 
+             
+        "Nb": {
+            "atom_num": "41", 
+            "atom_energy" : -10.094, 
+            "atomic_rad" : 1.98, 
+            "crystal_rad" : 0.78,
+            "NaCl_O": 2.243, 
+            "CsCl_O": 2.811, 
+            "ZnS_O": 2.407 
+        }, 
+             
+        "Mo": {
+            "atom_num": "42", 
+            "atom_energy" : -10.848, 
+            "atomic_rad" : 1.90, 
+            "crystal_rad" : 0.79,
+            "NaCl_O": 2.207, 
+            "CsCl_O": 2.763, 
+            "ZnS_O": 2.346 
+        }, 
+             
+        "Tc": {
+            "atom_num": "43", 
+            "atom_energy" : -10.361, 
+            "atomic_rad" : 1.83, 
+            "crystal_rad" : 0.79,
+            "NaCl_O": 2.241, 
+            "CsCl_O": 2.736, 
+            "ZnS_O": 2.318 
+        }, 
+             
+        "Ru": {
+            "atom_num": "44", 
+            "atom_energy" : -9.202,
+            "atomic_rad" : 1.78, 
+            "crystal_rad" : 0.82,
+            "NaCl_O": 2.221, 
+            "CsCl_O": 2.729, 
+            "ZnS_O": 2.316 
+        }, 
+             
+        "Rh": {
+            "atom_num": "45", 
+            "atom_energy" : -7.269,
+            "atomic_rad" : 1.73, 
+            "crystal_rad" : 0.81,
+            "NaCl_O": 2.216, 
+            "CsCl_O": 2.749, 
+            "ZnS_O": 2.364 
+        }, 
+             
+        "Pd": {
+            "atom_num": "46", 
+            "atom_energy" : -5.177,
+            "atomic_rad" : 1.69, 
+            "crystal_rad" : 0.78,
+            "NaCl_O": 2.256, 
+            "CsCl_O": 2.793, 
+            "ZnS_O": 2.424 
+        }, 
+             
+        "Ag": {
+            "atom_num": "47", 
+            "atom_energy" : -2.822,
+            "atomic_rad" : 1.65, 
+            "crystal_rad" : 1.29,
+            "NaCl_O": 2.323, 
+            "CsCl_O": 2.866, 
+            "ZnS_O": 2.506 
+        }, 
+             
+        "Cd": {
+            "atom_num": "48", 
+            "atom_energy" : -0.900,
+            "atomic_rad" : 1.61, 
+            "crystal_rad" : 0.92,
+            "NaCl_O": 2.369, 
+            "CsCl_O": 2.911, 
+            "ZnS_O": 2.550 
+        }, 
+             
+        "In": {
+            "atom_num": "49", 
+            "atom_energy" : -2.720,
+            "atomic_rad" : 1.56, 
+            "crystal_rad" : 0.94,
+            "NaCl_O": 2.454, 
+            "CsCl_O": 3.027, 
+            "ZnS_O": 2.586 
+        }, 
+             
+        "Sn": {
+            "atom_num": "50", 
+            "atom_energy" : -4.007,
+            "atomic_rad" : 1.45, 
+            "crystal_rad" : 0.69,
+            "NaCl_O": 2.536, 
+            "CsCl_O": 3.105, 
+            "ZnS_O": 2.709 
+        }, 
+             
+        "Sb": {
+            "atom_num": "51", 
+            "atom_energy" : -4.118,
+            "atomic_rad" : 1.33, 
+            "crystal_rad" : 0.9
+        },
+ 
+        "Te": {
+            "atom_num": "52", 
+            "atom_energy" : -3.142,
+            "atomic_rad" : 1.23, 
+            "crystal_rad" : 1.11
+        },
+
+        "I" : {
+            "atom_num": "53", 
+            "atom_energy" : -1.509,
+            "atomic_rad" : 1.15, 
+            "crystal_rad" : 2.06
+        },
+
+        "Xe": {
+            "atom_num": "54", 
+            "atom_energy" : 0.003,
+            "atomic_rad" :  1.08, 
+            "crystal_rad" : 0.62
+        },
+
+        "Cs": {
+            "atom_num": "55", 
+            "atom_energy" : -0.855,
+            "atomic_rad" : 2.98, 
+            "crystal_rad" : 1.81,
+            "NaCl_O": 2.910, 
+            "CsCl_O": 3.633, 
+            "ZnS_O": 3.206 
+        }, 
+             
+        "Ba": {
+            "atom_num": "56", 
+            "atom_energy" : -1.924,
+            "atomic_rad" : 2.53, 
+            "crystal_rad" : 1.49,
+            "NaCl_O": 2.781, 
+            "CsCl_O": 3.343, 
+            "ZnS_O": 2.973 
+        }, 
+             
+        "La": {
+            "atom_num": "57", 
+            "atom_energy" : -4.935,
+            "atomic_rad" : 1.95, 
+            "crystal_rad" : 1.36,
+            "NaCl_O": 2.562, 
+            "CsCl_O": 3.132, 
+            "ZnS_O": 2.809 
+        }, 
+             
+        "Ce": {
+            "atom_num": "58", 
+            "atom_energy" : -4.777,
+            "atomic_rad" : 1.85, 
+            "crystal_rad" : 1.15,
+            "NaCl_O": 2.564, 
+            "CsCl_O": 3.145, 
+            "ZnS_O": 2.819 
+        }, 
+             
+        "Pr": {
+            "atom_num": "59", 
+            "atom_energy" : -4.775,
+            "atomic_rad" : 2.47, 
+            "crystal_rad" : 1.32,
+            "NaCl_O": 2.533, 
+            "CsCl_O": 3.107, 
+            "ZnS_O": 2.780 
+        }, 
+             
+        "Nd": {
+            "atom_num": "60", 
+            "atom_energy" : -4.763,
+            "atomic_rad" : 2.06, 
+            "crystal_rad" : 1.3,
+            "NaCl_O": 2.508, 
+            "CsCl_O": 3.075, 
+            "ZnS_O": 2.755 
+        }, 
+             
+        "Pm": {
+            "atom_num": "61", 
+            "atom_energy" : -4.745,
+            "atomic_rad" : 2.05, 
+            "crystal_rad" : 1.28,
+            "NaCl_O": 2.482, 
+            "CsCl_O": 3.044, 
+            "ZnS_O": 2.729 
+        }, 
+             
+        "Sm": {
+            "atom_num": "62", 
+            "atom_energy" : -4.715,
+            "atomic_rad" : 2.38, 
+            "crystal_rad" : 1.1,
+            "NaCl_O": 2.466, 
+            "CsCl_O": 3.023, 
+            "ZnS_O": 2.708 
+        }, 
+             
+        "Eu": {
+            "atom_num": "63", 
+            "atom_energy" : -1.888,
+            "atomic_rad" : 2.31, 
+            "crystal_rad" : 1.31,
+            "NaCl_O": 2.474, 
+            "CsCl_O": 2.942, 
+            "ZnS_O": 2.672 
+        }, 
+             
+        "Gd": {
+            "atom_num": "64", 
+            "atom_energy" : -4.655,
+            "atomic_rad" : 2.33, 
+            "crystal_rad" : 1.08,
+            "NaCl_O": 2.426, 
+            "CsCl_O": 2.976, 
+            "ZnS_O": 2.665 
+        }, 
+             
+        "Tb": {
+            "atom_num": "65", 
+            "atom_energy" : -4.629,
+            "atomic_rad" : 2.25, 
+            "crystal_rad" : 1.18,
+            "NaCl_O": 2.411, 
+            "CsCl_O": 2.958, 
+            "ZnS_O": 2.647 
+        }, 
+             
+        "Dy": {
+            "atom_num": "66", 
+            "atom_energy" : -4.602,
+            "atomic_rad" : 2.28, 
+            "crystal_rad" : 1.05,
+            "NaCl_O": 2.397, 
+            "CsCl_O": 2.941, 
+            "ZnS_O": 2.631 
+        }, 
+             
+        "Ho": {
+            "atom_num": "67", 
+            "atom_energy" : -4.577,
+            "atomic_rad" : 2.26, 
+            "crystal_rad" : 1.04,
+            "NaCl_O": 2.382, 
+            "CsCl_O": 2.926, 
+            "ZnS_O": 2.616 
+        }, 
+             
+        "Er": {
+            "atom_num": "68", 
+            "atom_energy" : -4.563,
+            "atomic_rad" : 2.26, 
+            "crystal_rad" : 1.03,
+            "NaCl_O": 2.367, 
+            "CsCl_O": 2.908, 
+            "ZnS_O": 2.599 
+        }, 
+             
+        "Tm": {
+            "atom_num": "69", 
+            "atom_energy" : -4.475,
+            "atomic_rad" : 2.22, 
+            "crystal_rad" : 1.02,
+            "NaCl_O": 2.353, 
+            "CsCl_O": 2.890, 
+            "ZnS_O": 2.583 
+        }, 
+             
+        "Yb": {
+            "atom_num": "70", 
+            "atom_energy" : -1.513,
+            "atomic_rad" : 2.22, 
+            "crystal_rad" : 1.13,
+            "NaCl_O": 2.356, 
+            "CsCl_O": 2.808, 
+            "ZnS_O": 2.559 
+        }, 
+             
+        "Lu": {
+            "atom_num": "71", 
+            "atom_energy" : -4.524,
+            "atomic_rad" : 2.17, 
+            "crystal_rad" : 1,
+            "NaCl_O": 2.331, 
+            "CsCl_O": 2.860, 
+            "ZnS_O": 2.556 
+        }, 
+             
+        "Hf": {
+            "atom_num": "72", 
+            "atom_energy" : -9.955,
+            "atomic_rad" : 2.08, 
+            "crystal_rad" : 0.85,
+            "NaCl_O": 2.271, 
+            "CsCl_O": 2.836, 
+            "ZnS_O": 2.459 
+        }, 
+             
+        "Ta": {
+            "atom_num": "73", 
+            "atom_energy" : -11.853, 
+            "atomic_rad" : 2.00, 
+            "crystal_rad" : 0.78,
+            "NaCl_O": 2.242, 
+            "CsCl_O": 2.834, 
+            "ZnS_O": 2.390 
+        }, 
+             
+        "W" : {
+            "atom_num": "74", 
+            "atom_energy" : -12.960, 
+            "atomic_rad" : 1.93, 
+            "crystal_rad" : 0.74,
+            "NaCl_O": 2.226, 
+            "CsCl_O": 2.815, 
+            "ZnS_O": 2.345 
+        }, 
+             
+        "Re": {
+            "atom_num": "75", 
+            "atom_energy" : -12.423, 
+            "atomic_rad" : 1.88, 
+            "crystal_rad" : 0.77,
+            "NaCl_O": 2.219, 
+            "CsCl_O": 2.785, 
+            "ZnS_O": 2.323 
+        }, 
+             
+        "Os": {
+            "atom_num": "76", 
+            "atom_energy" : -11.226, 
+            "atomic_rad" : 1.85, 
+            "crystal_rad" : 0.77,
+            "NaCl_O": 2.235, 
+            "CsCl_O": 2.781, 
+            "ZnS_O": 2.317 
+        }, 
+             
+        "Ir": {
+            "atom_num": "77", 
+            "atom_energy" : -8.855,
+            "atomic_rad" : 1.80, 
+            "crystal_rad" : 0.77,
+            "NaCl_O": 2.260, 
+            "CsCl_O": 2.798, 
+            "ZnS_O": 2.377 
+        }, 
+             
+        "Pt": {
+            "atom_num": "78", 
+            "atom_energy" : -6.056,
+            "atomic_rad" : 1.77, 
+            "crystal_rad" : 0.74,
+            "NaCl_O": 2.298, 
+            "CsCl_O": 2.842, 
+            "ZnS_O": 2.453 
+        }, 
+             
+        "Au": {
+            "atom_num": "79", 
+            "atom_energy" : -3.267,
+            "atomic_rad" : 1.74, 
+            "crystal_rad" : 1.51,
+            "NaCl_O": 2.366, 
+            "CsCl_O": 2.919, 
+            "ZnS_O": 2.542 
+        }, 
+             
+        "Hg": {
+            "atom_num": "80", 
+            "atom_energy" : -0.298,
+            "atomic_rad" : 1.71, 
+            "crystal_rad" : 0.83,
+            "NaCl_O": 2.448, 
+            "CsCl_O": 3.003, 
+            "ZnS_O": 2.630 
+        }, 
+             
+        "Tl": {
+            "atom_num": "81", 
+            "atom_energy" : -2.359,
+            "atomic_rad" : 1.56, 
+            "crystal_rad" : 1.03,
+            "NaCl_O": 2.543, 
+            "CsCl_O": 3.143, 
+            "ZnS_O": 2.704 
+        }, 
+             
+        "Pb": {
+            "atom_num": "82", 
+            "atom_energy" : -3.704,
+            "atomic_rad" : 1.54, 
+            "crystal_rad" : 1.49,
+            "NaCl_O": 2.592, 
+            "CsCl_O": 3.186, 
+            "ZnS_O": 2.806 
+        }, 
+             
+        "Bi": {
+            "atom_num": "83", 
+            "atom_energy" : -4.039,
+            "atomic_rad" : 1.43, 
+            "crystal_rad" : 1.17,
+            "NaCl_O": 2.604, 
+            "CsCl_O": 3.194, 
+            "ZnS_O": 2.770 
+        }, 
+             
+        "Ac": {
+            "atom_num": "89", 
+            "atom_energy" : -4.106,
+            "atomic_rad" : 1.95, 
+            "crystal_rad" : 1.26
+        },
+
+        "Th": {
+            "atom_num": "90", 
+            "atom_energy" : -7.413,
+            "atomic_rad" : 1.80, 
+            "crystal_rad" : 1.19
+        },
+
+        "Pa": {
+            "atom_num": "91", 
+            "atom_energy" : -9.496,
+            "atomic_rad" : 1.80, 
+            "crystal_rad" : 1.09
+        },
+
+        "U" : {
+            "atom_num": "92", 
+            "atom_energy" : -11.292, 
+            "atomic_rad" : 1.75,
+            "crystal_rad" : 0.87
+        },
+
+        "Np": {
+            "atom_num": "93", 
+            "atom_energy" : -12.940, 
+            "atomic_rad" : 1.75, 
+            "crystal_rad" : 1
+        },
+ 
+        "Pu": {
+            "atom_num": "94", 
+            "atom_energy" : -14.298, 
+            "atomic_rad" : 1.75, 
+            "crystal_rad" : 1
+        } 
+    },
+    
+    "elem_subgroups" : {
+        "metals" : [
+            "Li", "Be", "B", 
+            "Na", "Mg", "Al", 
+            "K", "Ca", "Ga", 
+            "Rb", "Sr", "In", "Sn", 
+            "Cs", "Ba", "Tl", "Pb", "Bi", 
+            "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", 
+            "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", 
+            "La", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", 
+            "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", 
+            "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu" 
+        ],
+        "metals_in_row": [
+            "Li", "Na", "K",  "Rb", "Cs", 
+            "Be", "Mg", "Ca", "Sr", "Ba", 
+            "Al", "Ga", "In", "Sn", 
+            "Sc", "Ti", "V",  "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", 
+            "Y",  "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", 
+            "Hf", "Ta", "W",  "Re", "Os", "Ir", "Pt", "Au", 
+            "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu"
+        ]
+
+    }
+}
