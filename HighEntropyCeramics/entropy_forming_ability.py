@@ -1,10 +1,12 @@
 
 import os
+import sys
 import json
+import argparse
 import numpy as np
 from pymatgen import Structure
 
-from CrystalToolkit.atom import total_atomic_energy, atoms_rad_statis
+from CrystalToolkit.atom import average_atomic_energy, atoms_rad_statis
 from CrystalToolkit.geometry import bond_length_statis, check_coords
 from pyMongoDB.mongodb import get_mongodb_entries
 
@@ -26,7 +28,7 @@ def group_data_use_composition(docs):
     not_finish_calc = []
     for doc in docs:
         if doc['state'] == 'killed' or doc['state'] == 'unsuccessful':
-            not_finish_calc.append(dir_name = doc['dir_name'].split('/')[-1])
+            not_finish_calc.append(doc['dir_name'].split('/')[-1])
         else:
             # use pretty formula as the key of the list
             # as different compositions have different pretty formula
@@ -133,18 +135,27 @@ def entropy_forming_ability(all_values):
 
 if __name__ == '__main__':
 
-    # read element related data from file
-    # this file has some information that pymatgen does not have
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    with open(os.path.join(script_dir, 'data.json')) as f:
-        cryst_atom_data = json.load(f)
+    parser = argparse.ArgumentParser(description='entorpy forming ability',
+                                    formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument('--dir_prefix', type=str, default='nitride_hec5_relax',
+                        #'HighEntro/entropy_forming_ability/sulfide_zinc_blende/'
+                        help='part of the dir as the criterion to search mongodb')
+    parser.add_argument('--coord_num', type=int, default=4,
+                        help='coordinate number in the structure, default is 4 for zinc blende')
 
+    args = parser.parse_args()
+    dir_prefix = args.dir_prefix
     # this value is used to check if the geometry optimzation breaks the prototype structure
     # by find if all the atoms keep the original coordinates
     # see function check_coords for details
-    coord_num = 4
+    coord_num = args.coord_num
 
-    docs = get_mongodb_entries(dir_prefix='HighEntro/entropy_forming_ability/sulfide_zinc_blende/')
+    # read element related data from file
+    # this file has some information that pymatgen does not have
+    with open(os.path.join(sys.path[0], '../CrystalToolkit/atom.json')) as f:
+        cryst_atom_data = json.load(f)
+
+    docs = get_mongodb_entries(dir_prefix=dir_prefix)
 
     # group the documents with the same composition
     all_composits, not_finish_calc = group_data_use_composition(docs)
@@ -156,14 +167,15 @@ if __name__ == '__main__':
     # i.e. somehow amphorous
     new_all_composits = {}
     not_keep_struct = []
-    for pretty_formula, docs in all_composits:
+    for pretty_formula, docs in all_composits.items():
+        print(pretty_formula, len(docs))
         new_all_composits[pretty_formula] = []
         for doc in docs:
             struct = Structure.from_dict(doc['output']['crystal'])
             if check_coords(structure=struct, coord_num=coord_num):
                 new_all_composits[pretty_formula].append(doc)
             else:
-                not_keep_struct.append(dir_name = doc['dir_name'].split('/')[-1])
+                not_keep_struct.append(doc['dir_name'].split('/')[-1])
     all_composits = new_all_composits
 
     # get energy per atom and other propertiers composition-wise
@@ -175,13 +187,14 @@ if __name__ == '__main__':
     for pretty_formula in efa_values.keys():
         # the docs for each composition have the same 'reduce_cell_formula'
         # so only take the first one
+        print(pretty_formula,len(all_composits[pretty_formula]))
         doc = all_composits[pretty_formula][0]
         # sum over all the atomic energies
-        total_atoms_ene = total_atomic_energy(atomic_formula=doc['reduced_cell_formula'].items(), 
+        avg_atoms_ene = average_atomic_energy(atomic_formula=doc['reduced_cell_formula'].items(), 
                                     elem_data=cryst_atom_data['elem'])
         # calcuation formation energy
         average_energy_pa = efa_values[pretty_formula][2]
-        formation_ene_pa = average_energy_pa - total_atoms_ene / doc['nsites']        
+        formation_ene_pa = average_energy_pa - avg_atoms_ene         
         
         # get element related statistics, so only formula (not structure) is needed
         anion, cation, \
