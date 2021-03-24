@@ -40,6 +40,32 @@ def group_data_use_composition(docs):
     return all_composits, not_finish_calc        
 
 
+def check_coords_for_compostions(all_composits, coord_num):
+    '''
+
+    Args:
+
+    Return:
+
+    '''
+    # remove the structures no longer be the prototype
+    # i.e. somehow amphorous
+    new_all_composits = {}
+    not_keep_struct = []
+    for pretty_formula, docs in all_composits.items():
+        for doc in docs:
+            struct = Structure.from_dict(doc['output']['crystal'])
+            if check_coords(structure=struct, coord_num=coord_num):
+                if pretty_formula in new_all_composits:
+                    new_all_composits[pretty_formula].append(doc)
+                else:
+                    new_all_composits[pretty_formula] = []
+                    new_all_composits[pretty_formula].append(doc)
+            else:
+                not_keep_struct.append(doc['dir_name'].split('/')[-1])
+    return new_all_composits, not_keep_struct
+
+
 def get_values_for_each_composition(all_composits, properties=['final_energy_per_atom']):
     '''
 
@@ -60,7 +86,7 @@ def get_values_for_each_composition(all_composits, properties=['final_energy_per
                                 2.345
                                 ......
                             ]
-                            'bond_len_statis':[         # the property
+                            'bond_length_statis':[      # the property
                                 (1.2, 2.3, 3.4)         # the tuple of mean, std and ptp
                                 (4.5, 5.6, 6.7)
                                 ......
@@ -75,17 +101,16 @@ def get_values_for_each_composition(all_composits, properties=['final_energy_per
         for struct_property in properties:
             all_values[pretty_formula][struct_property] = []
             for doc in docs:
-                try:
+                if struct_property in doc['output']:
                     va = doc['output'][struct_property]
+                elif struct_property in doc['analysis']:
+                    va = doc['analysis'][struct_property]
                 # some properties not included in the mongodb goes here
-                except:
-                    try:
-                        va = doc['analysis'][struct_property]
-                    except:
-                        if struct_property == 'bond_length_statis':
-                            va = bond_length_statis(structure=struct)
-                        else:
-                            print('unknow property')
+                elif struct_property == 'bond_length_statis':
+                    struct = Structure.from_dict(doc['output']['crystal'])
+                    va = bond_length_statis(structure=struct)
+                else:
+                    print('unknown property')
 
                 all_values[pretty_formula][struct_property].append(va)
             
@@ -128,7 +153,7 @@ def entropy_forming_ability(all_values):
         all_energies = np.array(struct_property['final_energy_per_atom'])
         # get efa and average total energy
         efa_values[pretty_formula] = [len(all_energies), 
-                                        all_energies.std(), 
+                                        1.0 / all_energies.std(), 
                                         all_energies.mean()]
     return efa_values
 
@@ -159,24 +184,13 @@ if __name__ == '__main__':
 
     # group the documents with the same composition
     all_composits, not_finish_calc = group_data_use_composition(docs)
+    with open('not_finish_calc', 'w') as f:
+        print(not_finish_calc, file=f)
 
-    # check if the group is correct or not
-
-    
-    # remove the structures no longer be the prototype
-    # i.e. somehow amphorous
-    new_all_composits = {}
-    not_keep_struct = []
-    for pretty_formula, docs in all_composits.items():
-        print(pretty_formula, len(docs))
-        new_all_composits[pretty_formula] = []
-        for doc in docs:
-            struct = Structure.from_dict(doc['output']['crystal'])
-            if check_coords(structure=struct, coord_num=coord_num):
-                new_all_composits[pretty_formula].append(doc)
-            else:
-                not_keep_struct.append(doc['dir_name'].split('/')[-1])
-    all_composits = new_all_composits
+    # remove the relaxed structure becoming somehow amorphous
+    all_composits, not_keep_struct = check_coords_for_compostions(all_composits, coord_num=coord_num)
+    with open('not_keep_struct', 'w') as f:
+        print(not_keep_struct, file=f)
 
     # get energy per atom and other propertiers composition-wise
     all_values = get_values_for_each_composition(all_composits, 
@@ -187,10 +201,9 @@ if __name__ == '__main__':
     for pretty_formula in efa_values.keys():
         # the docs for each composition have the same 'reduce_cell_formula'
         # so only take the first one
-        print(pretty_formula,len(all_composits[pretty_formula]))
         doc = all_composits[pretty_formula][0]
         # sum over all the atomic energies
-        avg_atoms_ene = average_atomic_energy(atomic_formula=doc['reduced_cell_formula'].items(), 
+        avg_atoms_ene = average_atomic_energy(atomic_formula=doc['reduced_cell_formula'], 
                                     elem_data=cryst_atom_data['elem'])
         # calcuation formation energy
         average_energy_pa = efa_values[pretty_formula][2]
@@ -200,21 +213,21 @@ if __name__ == '__main__':
         anion, cation, \
         cation_atom_rad_std, cation_cryst_rad_std, \
         cation_atom_rad_ptp, cation_cryst_rad_ptp \
-            = atoms_rad_statis(atomic_formula=doc['reduced_cell_formula'].items(), 
+            = atoms_rad_statis(atomic_formula=doc['reduced_cell_formula'], 
                                 elem_data=cryst_atom_data['elem'])    
-        cation = ','.join(cation)
+        cation = ','.join(sorted(cation))
 
         # get bond length analysis
-        bond_len_vals = np.array(all_values[pretty_formula]['bond_len_statis'])
+        bond_len_vals = np.array(all_values[pretty_formula]['bond_length_statis'])
         # the mean at the end is the average over all the supercell configurations
         bond_len_mean = bond_len_vals[:,0].mean()
         bond_len_std = bond_len_vals[:,1].mean()
         bond_len_ptp = bond_len_vals[:,2].mean()
             
-        print(anion, cation,  
+        print(anion, cation, efa_values[pretty_formula][0],
             round(cation_atom_rad_std, 3), round(cation_cryst_rad_std, 3),
             round(cation_atom_rad_ptp, 3), round(cation_cryst_rad_ptp, 3),
-            round(formation_ene_pa, 3), 
+            round(formation_ene_pa, 3), round(efa_values[pretty_formula][1], 3),
             round((bond_len_mean), 3), round(bond_len_std, 3), round(bond_len_ptp, 3),
             sep=', ', flush=True)
 

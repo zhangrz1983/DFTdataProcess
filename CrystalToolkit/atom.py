@@ -32,15 +32,14 @@ def average_atomic_energy(atomic_formula, elem_data):
     by summing all the atomic energies and then divided by number of atoms
 
     Args:
-        atomic_formula: list.item() iterable pymatgen formula, typically from
-                        mongodb entries
+        atomic_formula: a dictionary, in the format of pymatgen formula
         elem_data: atom properties from the json file
     Return:
         average atomic energy in eV
     '''
     total_atoms_ene = 0.0
     n_atoms = 0
-    for atom, num in atomic_formula:
+    for atom, num in atomic_formula.items():
         total_atoms_ene += (elem_data[atom]['atom_energy'] * num)
         n_atoms += num
     return total_atoms_ene / n_atoms
@@ -53,7 +52,7 @@ def atoms_rad_statis(atomic_formula, elem_data):
     And the anion atom is found using the anion_num value
 
     Args:
-        atomic_formula: list.item() iterable pymatgen formula
+        atomic_formula: a dictionary, in the format of pymatgen formula
         elem_data: atom properties from the json file
     Return:
         cation and anion atom list
@@ -65,13 +64,13 @@ def atoms_rad_statis(atomic_formula, elem_data):
     cation = []
     atom_rads = []
     cryst_rads = []
-    for atom, num in atomic_formula:
+    for atom, num in atomic_formula.items():
         # the if to make sure only run atomic statistics on cations
         if num == anion_num:
             anion = atom
         else:
             # sometimes the cations is not equimolar, so use num to loop
-            for i in range(num):
+            for i in range(int(num)):
                 cation.append(atom)
                 atom_rads.append(elem_data[atom]['atomic_rad'])
                 cryst_rads.append(elem_data[atom]['crystal_rad'])

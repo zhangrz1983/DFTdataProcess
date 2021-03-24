@@ -7,7 +7,7 @@ import json
 import sys
 import pandas as pd
 import numpy as np
-from pymatgen import Lattice
+from pymatgen import Structure, Lattice
 
 from CrystalToolkit.structure import structure_from_json, elements_sorted_filename
 from CrystalToolkit.composition import composition_from_one_list
@@ -21,15 +21,13 @@ stru_componts = structure_list['entropy_forming_ability']['five_cations_rocksalt
 # The lattice constants read from the file is 1/2 of the cubic crystal cell parameter
 # in OQMD they are stored as ((a,a,0)(a,0,a)(0,a,a)) for the primitive cell
 # therefore "a" is half the length of cubic cell parameter
-lat_vals = pd.read_csv('/home/rz/tmp/hen/B1_NaCl_lattice_constant_OQMD.csv', index_col=0)
-print(lat_vals)
-print(lat_vals['Ti']['N'])
+lat_vals = pd.read_csv('/home/rz/Desktop/B1_NaCl_lattice_constant_OQMD.csv', index_col=0)
 
 ntype = 5
 cation_list = [
-            'Ti', 'Zr', 'Hf',
-            'V',  'Nb', 'Ta', 
-            'Si', 'Cr', 
+            'Al', 'Si',  
+            'Ti', 'V',  'Cr',
+            'Zr', 'Nb', 'Mo', 
             ]
 anion_list = [
             'N', 
@@ -53,10 +51,17 @@ for cation_comp_list in cation_comp_lists:
         # so the volume is only for one atom
         # while the POCC structures read from json file is for 10 atoms 
         scale_factor = ( cell_lat ** 3 * (ntype * 2) / stru.volume ) ** (1./3.)
-        latt = stru.lattice.as_dict()
-        latt['matrix'] = (np.array(stru.lattice.as_dict()['matrix']) * scale_factor).tolist()
-        latt = Lattice.from_dict(latt)
-        stru.lattice = latt
+
+        # in older version of pymatgen, stru.lattice cannot be change, so revise the code
+        # to change structure
+        #latt = stru.lattice.as_dict()
+        #latt['matrix'] = (np.array(stru.lattice.as_dict()['matrix']) * scale_factor).tolist()
+        #latt = Lattice.from_dict(latt)
+        #stru.lattice = latt
+
+        d_stru = stru.as_dict()
+        d_stru['lattice']['matrix'] = (np.array(d_stru['lattice']['matrix']) * scale_factor).tolist()
+        stru = Structure.from_dict(d_stru)
 
         # write into vasp poscar file using the naming for high-entropy materials
         f = elements_sorted_filename(structure=stru, incl_num=True) + '_' + str(i+1)
